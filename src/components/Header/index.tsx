@@ -5,6 +5,7 @@ import Link from "next/link"
 import { AccountMenu } from "../AccountMenu"
 import { useScroll } from "@/hook/use-scroll"
 import { cn } from '@/lib/utils'
+import { SearchInput } from "../SearchInput"
 
 export const Header = () => {
     const isScrolled = useScroll(50)
@@ -24,7 +25,10 @@ export const Header = () => {
                 <Link href={"#"} className="text-muted text-sm font-bold">Explorar</Link>
                 <Link href={"#"} className="text-muted text-sm font-bold">Canais</Link>
             </div>
-            <AccountMenu />
+            <div className="flex gap-4">
+                <SearchInput />
+                <AccountMenu />
+            </div>
         </div>
     )
 }

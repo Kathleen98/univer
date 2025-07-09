@@ -1,18 +1,23 @@
-import { ChevronDown } from "lucide-react"
-import { Avatar, AvatarImage } from "../ui/avatar"
-import { DropdownMenu, DropdownMenuTrigger } from "../ui/dropdown-menu"
+import { ChevronDown, ChevronUp } from "lucide-react"
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
+import { Button } from "../ui/button"
+import { ListMenu } from "./list-menu"
+import { useState } from "react"
 
 export const AccountMenu = () => {
+    const [dropdownMenu, setDropdownMenu] = useState(false)
     return (
-        <DropdownMenu>
-            <DropdownMenuTrigger className="p-1 rounded-md">
-                <div className="flex items-center gap-4">
-                    <Avatar>
-                        <AvatarImage src={"https://github.com/shadcn.png"} />
-                    </Avatar>
-                    <ChevronDown className="size-4 text-muted-foreground cursor-pointer" />
-                </div>
-            </DropdownMenuTrigger>
-        </DropdownMenu>
+        <Button onClick={() => setDropdownMenu(!dropdownMenu)} onBlur={() => setDropdownMenu(false)} className="rounded-md bg-transparent relative">
+            <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+            {dropdownMenu ?
+                < ChevronUp />
+                :
+                < ChevronDown />}
+
+            <ListMenu dropdownMenu={dropdownMenu} />
+        </Button>
     )
 }
