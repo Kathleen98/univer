@@ -3,35 +3,35 @@
 </br>
 
 <h2>🎯 Por que estou construindo esse projeto</h2>
-<p>Consumo muitos conteúdos da plataforma <strong>Univer Videos</strong>, e sofro um pouco com a experiência que o
-    usuário tem, tanto no mobile quando no desktop, então pensei em usar a plataforma para estudar e desenvolver minhas
-    habilidades no front.</p>
+<p>Sou um usuária frequente da plataforma Univer Videos e, como desenvolvedora, sempre noto pontos de melhoria na
+    experiência do usuário, tanto no mobile quanto no desktop. Decidi usar essa oportunidade para estudar e aprimorar
+    minhas habilidades no front-end, criando uma versão melhorada da interface..</p>
 </br>
 <h2>Techs</h2>
-<div style="width: 100%; display:flex; justify-content: center; align-items: center;">
+<div style="width: 100vw; display:  flex; justify-content: center; align-items: center;">
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <img style="width: 30px; height: 30px;" src="./public/icon-next.svg" alt="ícone do NextJS preto e branco">
-        <p>NextJS</p>
+        <p style="font-size: .7rem;">NextJS</p>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <img style="width: 30px; height: 30px;" src="./public/icon-typescript.png" alt="ícone do TypeScript">
-        <p>TypeScript</p>
+        <p style="font-size: .7rem;">TypeScript</p>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <img style="width: 30px; height: 30px;" src="./public/icon-shadcn.png" alt="ícone do Shadcn">
-        <p>Shadcn</p>
+        <p style="font-size: .7rem;">Shadcn</p>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <img style="width: 30px; height: 30px;" src="./public/icon-tailwind.png" alt="ícone do Tailwind">
-        <p>Tailwind</p>
+        <p style="font-size: .7rem;">Tailwind</p>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <img style="width: 30px; height: 30px;" src="./public/icon-axios.webp" alt="ícone do Axios">
-        <p>Axios</p>
+        <p style="font-size: .7rem;">Axios</p>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <img style="width: 30px; height: 30px;" src="./public/icons-tanstack.png" alt="ícone do Tanstack">
-        <p>Tanstack</p>
+        <p style="font-size: .7rem;">Tanstack</p>
     </div>
 </div>
 </br>
@@ -50,3 +50,5 @@
     <li>Aplicar conceitos de UX/UI em um projeto real</li>
 </ul>
 </br>
+
+<p style="font-size: .6rem;">Este é um projeto de estudos e não tem fins comerciais.</p>
