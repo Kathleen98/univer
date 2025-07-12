@@ -50,3 +50,5 @@
     <li>Aplicar conceitos de UX/UI em um projeto real</li>
 </ul>
 </br>
+
+<p style="font-size: .6rem;">Este é um projeto de estudos e não tem fins comerciais.</p>
