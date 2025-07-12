@@ -24,6 +24,11 @@ export const Header = () => {
                 <Link href={"#"} className="text-muted text-sm font-bold">Kids</Link>
                 <Link href={"#"} className="text-muted text-sm font-bold">Explorar</Link>
                 <Link href={"#"} className="text-muted text-sm font-bold">Canais</Link>
+                <Link href={"#"} className="text-muted text-sm font-bold">Ao vivo</Link>
+                <Link href={"#"} className="text-muted text-sm font-bold">Meditação</Link>
+                <Link href={"#"} className="text-muted text-sm font-bold">Reuniões</Link>
+                <Link href={"#"} className="text-muted text-sm font-bold">Programas</Link>
+
             </div>
             <div className="flex gap-4">
                 <SearchInput />
