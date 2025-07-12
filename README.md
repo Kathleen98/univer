@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1>Projeto Univer Streamig</h1>
+<p>Uma reimaginação da experiência de streaming da plataforma Univer Videos</p>
+</br>
 
-## Getting Started
+<h2>🎯 Por que estou construindo esse projeto</h2>
+<p>Consumo muitos conteúdos da plataforma <strong>Univer Videos</strong>, e sofro um pouco com a experiência que o
+    usuário tem, tanto no mobile quando no desktop, então pensei em usar a plataforma para estudar e desenvolver minhas
+    habilidades no front.</p>
+</br>
+<h2>Techs</h2>
+<div style="width: 100%; display:flex; justify-content: center; align-items: center;">
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <img style="width: 30px; height: 30px;" src="./public/icon-next.svg" alt="ícone do NextJS preto e branco">
+        <p>NextJS</p>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <img style="width: 30px; height: 30px;" src="./public/icon-typescript.png" alt="ícone do TypeScript">
+        <p>TypeScript</p>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <img style="width: 30px; height: 30px;" src="./public/icon-shadcn.png" alt="ícone do Shadcn">
+        <p>Shadcn</p>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <img style="width: 30px; height: 30px;" src="./public/icon-tailwind.png" alt="ícone do Tailwind">
+        <p>Tailwind</p>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <img style="width: 30px; height: 30px;" src="./public/icon-axios.webp" alt="ícone do Axios">
+        <p>Axios</p>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <img style="width: 30px; height: 30px;" src="./public/icons-tanstack.png" alt="ícone do Tanstack">
+        <p>Tanstack</p>
+    </div>
+</div>
+</br>
+<h2>🛠️ Por que estou usando essas techs</h2>
+<p>
+    No meu trabalho atual, desenvolvo uma plataforma de cursos para áreas de CS e CX usando Next.js 12. Recentemente,
+    nossa equipe recebeu uma demanda para criar um sistema de analytics, e aproveitei para apresentar uma POC com
+    tecnologias mais atualizadas.
+</p>
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<h3>Meu objetivo com este projeto é:</h3>
+<ul>
+    <li>Dominar as funcionalidades do Next.js 15</li>
+    <li>Explorar o ecossistema do Shadcn/ui</li>
+    <li>Praticar padrões modernos de desenvolvimento React</li>
+    <li>Aplicar conceitos de UX/UI em um projeto real</li>
+</ul>
+</br>
