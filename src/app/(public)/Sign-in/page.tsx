@@ -7,40 +7,43 @@ import logoUniver from '../../../../public/logo-univer-branco.png'
 import Link from "next/link"
 import { univerAPI } from "@/lib/axios/mocki-API"
 import { redirect } from "next/navigation"
-import { revalidatePath } from "next/cache"
 
 
 const SignIn = () => {
 
-    const handleSignIn = async (formData : FormData) =>{
+    const handleSignIn = async (formData: FormData) => {
         "use server"
         const email = formData.get("email")
-            const password = formData.get("password")
+        const password = formData.get("password")
 
-            if(!email){
-                throw new Error("Preencha o campo email!");
-            }
+        if (!email) {
+            throw new Error("Preencha o campo email!");
+        }
 
-            if(!password){
-                throw new Error("Preencha o campo senha!");
-            }
+        if (!password) {
+            throw new Error("Preencha o campo senha!");
+        }
 
-        try{
+        try {
 
             const response = await univerAPI.post('/sign-in', {
                 email,
                 password
             })
 
-            console.log('Status da resposta:', response.status)
-                revalidatePath('/Home')
-         
-        }catch(e){
+            if(!response.data.token){
+                return
+            }
+
+            console.log('Status da resposta:', response.data)
+            // revalidatePath('/Home')
+
+        } catch (e) {
             console.log(`Erro ao fazer login ${e}`)
         }
 
-        redirect("/Home")
-   
+        redirect("/Player/a-origem")
+
     }
 
 
