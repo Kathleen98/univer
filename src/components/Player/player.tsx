@@ -2,7 +2,7 @@
 
 import { ChangeEvent, useEffect, useRef, useState } from "react"
 import { Button } from "../ui/button"
-import { Pause, Play } from "lucide-react"
+import { Fullscreen, MessageSquareText, Pause, Play, Volume2 } from "lucide-react"
 
 export const CustomPlayer = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -72,14 +72,26 @@ export const CustomPlayer = () => {
   //   }
   // }
 
-  
+
   return (
     <div className="w-full h-screen relative">
       <video ref={videoRef} controls={false} src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" className={`w-full h-screen`} />
-      <div className={`absolute bottom-0 left-5 right-5 flex flex-col`}>
+      <div className={`absolute bottom-0 left-5 right-5 flex flex-col gap-2`}>
+        <div className="flex justify-between">
+          <Button className="cursor-pointer bg-transparent  ">
+            <Volume2 color="white" />
+          </Button>
         <Button onClick={togglePlayPause} className="cursor-pointer bg-transparent w-[6rem] mx-auto">
           {!isPlaying ? <Play color="white" size={'1.5rem'} /> : <Pause color="white" size={'1.2rem'} />}
         </Button>
+
+        <div className="flex gap-2 items-center">
+          <Button className="cursor-pointer bg-transparent  ">
+          <MessageSquareText color="white"  />
+        </Button>
+        <Button className="cursor-pointer bg-transparent  "><Fullscreen color="white" /></Button>
+        </div>
+        </div>
         <input type="range" min={"0"} max={duration} value={progress} onChange={handleProgressChange} />
         <span>{new Date(progress * 1000).toISOString().substr(14, 5)}</span>
       </div>
