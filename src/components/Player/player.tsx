@@ -1,88 +1,88 @@
 'use client'
 
-import { useState, useEffect, useRef } from "react"
-import videojs from "video.js"
-import Player from "video.js/dist/types/player";
-import 'video.js/dist/video-js.css'
+import { ChangeEvent, useEffect, useRef, useState } from "react"
+import { Button } from "../ui/button"
+import { Pause, Play } from "lucide-react"
 
-interface VideoProps {
-  manifestUrl: string;
-  posterUrl: string;
-  intro: {
-    start: number;
-    end: number;
-  }
-}
-
-interface VideoPlayerProps {
-  videoData: VideoProps
-}
-
-export const VideosPlayer = ({ videoData }: VideoPlayerProps) => {
+export const CustomPlayer = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const playerRef = useRef<Player | null>(null);
-  const [showSkipButton, setShowSlikpButton] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [progress, setProgress] = useState(0)
+  const [duration, setDuration] = useState(0)
+  // const [volume, setVolume] = useState(1)
+  // const [isMuted, setIsMuted] = useState(false)
+  // const [isFullscreen, setIsFullscreen] = useState(false)
 
   useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
 
-    if (videoRef.current && !playerRef.current) {
-      const player = videojs(videoRef.current, {
-        autoplay: true,
-        controls: true,
-        responsive: true,
-        fluid: true,
-        sources: [{
-          src: videoData.manifestUrl,
-          type: 'application/x-mpegURL'
-        }]
-      })
+    const updateProgress = () => setProgress(video.currentTime)
+    const setVideoDuration = () => setDuration(video.duration)
 
-      playerRef.current = player
+    video.addEventListener('loadedmetadata', setVideoDuration)
+    video.addEventListener('timeupdate', updateProgress)
+    video.addEventListener('play', () => setIsPlaying(true))
+    video.addEventListener('pause', () => setIsPlaying(false))
 
-      player.on('timeupdate', () => {
-        const currentTime = player.currentTime() || 0
-
-        if (currentTime >= videoData.intro.start && currentTime < videoData.intro.end) {
-          setShowSlikpButton(true);
-        } else {
-          setShowSlikpButton(false)
-        }
-      })
-
-      return () => {
-        if (playerRef.current && !playerRef.current.isDisposed()) {
-          playerRef.current.dispose();
-          playerRef.current = null;
-        }
-      }
+    return () => {
+      video.removeEventListener('loadedmetadata', setVideoDuration)
+      video.removeEventListener('timeupdate', updateProgress)
+      video.removeEventListener('play', () => setIsPlaying(true))
+      video.removeEventListener('pause', () => setIsPlaying(false))
     }
-  }, [videoData]
 
-  )
+  }, [])
 
-  const handleSkipIntro = () => {
-    if (playerRef.current) {
-      playerRef.current.currentTime(videoData.intro.end);
-      setShowSlikpButton(false)
+  const togglePlayPause = () => {
+    const video = videoRef.current
+
+    if (!video) return
+
+    if (isPlaying) {
+      video.pause();
+      setIsPlaying(false)
+    } else {
+      video.play();
+      setIsPlaying(true)
     }
   }
 
-  return(
-    <div>
-      <div className="relative">
-        <video ref={videoRef} className="video-js vjs-big-play-centered" />
-      </div>
+  const handleProgressChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const video = videoRef.current
 
-       {showSkipButton && (
-        <button 
-          onClick={handleSkipIntro} 
-          className="absolute bottom-12 right-5 bg-black bg-opacity-70 text-white px-4 py-2 rounded cursor-pointer z-10"
-          // Usando classes do TailwindCSS como exemplo para estilização
-        >
-          Pular Introdução
-        </button>
-      )}
+    if (!video) return
+
+    const newTime = Number(e.target.value);
+    video.currentTime = newTime
+    setProgress(newTime)
+  }
+
+  // const handleVolumeChange = (e: ChangeEvent<HTMLInputElement>) => {
+  //   const video = videoRef.current
+
+  //   if (!video) return
+
+  //   const newVolume = Number(e.target.value)
+  //   video.volume = newVolume
+  //   setVolume(newVolume)
+  //   if (newVolume > 0) {
+  //     video.muted = false
+  //     setIsMuted(false)
+  //   }
+  // }
+
+  
+  return (
+    <div className="w-full h-screen relative">
+      <video ref={videoRef} controls={false} src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" className={`w-full h-screen`} />
+      <div className={`absolute bottom-0 left-5 right-5 flex flex-col`}>
+        <Button onClick={togglePlayPause} className="cursor-pointer bg-transparent w-[6rem] mx-auto">
+          {!isPlaying ? <Play color="white" size={'1.5rem'} /> : <Pause color="white" size={'1.2rem'} />}
+        </Button>
+        <input type="range" min={"0"} max={duration} value={progress} onChange={handleProgressChange} />
+        <span>{new Date(progress * 1000).toISOString().substr(14, 5)}</span>
+      </div>
     </div>
   )
-
 }

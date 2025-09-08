@@ -1,0 +1,15 @@
+.aspectRatioWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 9 / 16 = 0.5625 */
+  background-color: #000;
+}
+
+.aspectRatioWrapper :global(.video-js) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+    background-color: #000;
+}
