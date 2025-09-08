@@ -31,18 +31,14 @@ const SignIn = () => {
                 password
             })
 
-            if(!response.data.token){
-                return
-            }
-
             console.log('Status da resposta:', response.data)
-            // revalidatePath('/Home')
+ 
 
         } catch (e) {
             console.log(`Erro ao fazer login ${e}`)
         }
 
-        redirect("/Player/a-origem")
+        redirect("/home")
 
     }
 
