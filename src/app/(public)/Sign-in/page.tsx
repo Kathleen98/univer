@@ -52,8 +52,8 @@ const SignIn = () => {
                 <form action={handleSignIn} className="w-[390px] flex flex-col items-center justify-center">
                     <Image width={120} height={120} src={logoUniver} alt="Logo Univer branco" />
                     <div className="flex flex-col gap-5 w-[100%]">
-                        <Input name="email" placeholder="E-mail" />
-                        <Input name="password" placeholder="Senha" />
+                        <Input name="email" placeholder="E-mail" className="text-white" />
+                        <Input name="password" type="password" placeholder="Senha" className="text-white" />
                         <Button className="cursor-pointer">Entrar</Button>
                     </div>
                     <div className="flex flex-col items-center mt-1">
