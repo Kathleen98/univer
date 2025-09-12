@@ -32,14 +32,12 @@ const SignIn = () => {
                 password
             })
 
-            console.log(response)
-
             const expressTime = 60 * 60 * 24 * 30 * 1000
             const cookie = await cookies()
-            cookie.set('session', response.data.token, {
+            cookie.set('session', response.data.toke, {
                 maxAge: expressTime,
                 path: '/',
-                httpOnly: false,
+                httpOnly: true,
                 secure: process.env.NODE_ENV === 'production'
             })
 

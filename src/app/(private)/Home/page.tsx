@@ -5,40 +5,41 @@ import { getApiSSR } from "@/lib/axios/univer-api"
 import { videosProps } from "@/type/videos"
 
 const Home = async () => {
-   
+
     const getVideos = async () => {
-        try{
+        try {
             const api = await getApiSSR()
             const response = await api.get(`/videos`)
 
             const data = await response.data
 
             return data as videosProps
-        }catch(e){
-            console.log(`Erro no carregamento dos vídeos, ${e}`)
+
+        } catch (e) {
+            console.error(e)
         }
     }
 
     const videos = await getVideos()
 
 
-        return (
-            <div className="bg-[#000210]">
-                <Header />
-                <Hero />
-              {videos?.map((content) => {
-                return(
-                     <ContentCarosel
-                    key={content.id}
-                    title={content.title}
-                 
-                />
+    return (
+        <div className="bg-[#000210]">
+            <Header />
+            <Hero />
+            {videos?.map((content) => {
+                return (
+                    <ContentCarosel
+                        key={content.id}
+                        title={content.title}
+
+                    />
                 )
-              })}
-              
-            </div>
-        )
-    
+            })}
+
+        </div>
+    )
+
 
 }
 
