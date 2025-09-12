@@ -3,6 +3,7 @@ import { Header } from "@/components/Header"
 import { Hero } from "@/components/Hero"
 import { getApiSSR } from "@/lib/axios/univer-api"
 import { videosProps } from "@/type/videos"
+import { redirect } from "next/navigation"
 
 const Home = async () => {
    
@@ -14,8 +15,11 @@ const Home = async () => {
             const data = await response.data
 
             return data as videosProps
-        }catch(e){
-            console.log(`Erro no carregamento dos vídeos, ${e}`)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        }catch(e : any ){
+            if(e.response.status === 401){
+                redirect(';sign-in')
+            }
         }
     }
 
