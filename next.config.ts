@@ -10,6 +10,15 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       }
     ]
+  },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/sign-in',
+        permanent: true,
+      }
+    ]
   }
 };
 
