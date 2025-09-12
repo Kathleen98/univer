@@ -18,7 +18,7 @@ const Home = async () => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         }catch(e : any ){
             if(e.response.status === 401){
-                redirect(';sign-in')
+                redirect('/sign-in')
             }
         }
     }
