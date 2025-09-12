@@ -1,9 +1,8 @@
 import { ContentCarosel } from "@/components/ContentCarousel"
 import { Header } from "@/components/Header"
 import { Hero } from "@/components/Hero"
-import { getApiSSR } from "@/lib/axios/mocki-API"
+import { getApiSSR } from "@/lib/axios/univer-api"
 import { videosProps } from "@/type/videos"
-import { cookies } from "next/headers"
 
 const Home = async () => {
    
@@ -12,20 +11,7 @@ const Home = async () => {
             const api = await getApiSSR()
             const response = await api.get(`/videos`)
 
-            if (response.status === 200) {
-            // Salvar token nos cookies
-            const { token } =  response.data
-            const cookiesStore = await cookies()
-            cookiesStore.set('auth-token', token, {
-              
-            })
-            
-     
-        } else {
-            throw new Error("Credenciais inválidas");
-        }
-
-            const data = response.data
+            const data = await response.data
 
             return data as videosProps
         }catch(e){

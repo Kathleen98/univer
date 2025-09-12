@@ -13,3 +13,37 @@
   height: 100%;
     background-color: #000;
 }
+
+
+.inputVolume{
+  appearance: slider-vertical;
+  -webkit-appearance: none; 
+  /* appearance: none; */
+  width: 80px;
+  height: 5px;
+  background: #555;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+
+.inputVolume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #fff; 
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+.inputVolume::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}

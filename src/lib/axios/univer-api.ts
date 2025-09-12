@@ -8,7 +8,7 @@ export const univerAPI = axios.create({
 
 export const getApiSSR = async () => {
     const cookieStore = await cookies();
-    const token = cookieStore.get('__next_hmr_refresh_hash__')?.value;
+    const token = cookieStore.get('session')?.value;
 
     const api = axios.create({
         baseURL: process.env.API_BASE_URL,
