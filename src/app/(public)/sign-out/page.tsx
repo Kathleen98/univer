@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import banner from '../../../../public/banner-sign-in.webp'
 import logoUniver from '../../../../public/logo-univer-branco.png'
-import style from '../Sign-in/index.module.css'
+import style from '../sign-in/index.module.css'
 import Image from "next/image"
 import Link from "next/link"
 import { univerAPI } from "@/lib/axios/univer-api"
