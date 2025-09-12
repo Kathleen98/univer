@@ -2,7 +2,6 @@
 import { CustomPlayer } from "@/components/Player/player"
 import { getApiSSR } from "@/lib/axios/univer-api"
 import { Movie } from "@/type/movie"
-import { redirect } from "next/navigation"
 
 const PlayerPage = async () => {
 
@@ -15,13 +14,8 @@ const PlayerPage = async () => {
       const data = await response.data
 
       return data as Movie
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (e : any) {
-      if(e.response?.status ===  401){
-          console.error('erro na autenticação do usuário', e)
-        redirect('/sign-in');
-      }
+    } catch (e) {
+        console.error(e)
     }
   }
 
