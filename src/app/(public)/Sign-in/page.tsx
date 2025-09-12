@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button"
 import style from './index.module.css'
 import logoUniver from '../../../../public/logo-univer-branco.png'
 import Link from "next/link"
-import { univerAPI } from "@/lib/axios/mocki-API"
+import { univerAPI } from "@/lib/axios/univer-api"
 import { redirect } from "next/navigation"
+import { cookies } from "next/headers"
 
 
 const SignIn = () => {
@@ -31,8 +32,16 @@ const SignIn = () => {
                 password
             })
 
-            console.log('Status da resposta:', response.data)
- 
+            console.log(response)
+
+            const expressTime = 60 * 60 * 24 * 30 * 1000
+            const cookie = await cookies()
+            cookie.set('session', response.data.token, {
+                maxAge: expressTime,
+                path: '/',
+                httpOnly: false,
+                secure: process.env.NODE_ENV === 'production'
+            })
 
         } catch (e) {
             console.log(`Erro ao fazer login ${e}`)

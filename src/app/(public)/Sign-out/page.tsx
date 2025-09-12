@@ -5,7 +5,7 @@ import logoUniver from '../../../../public/logo-univer-branco.png'
 import style from '../Sign-in/index.module.css'
 import Image from "next/image"
 import Link from "next/link"
-import { univerAPI } from "@/lib/axios/mocki-API"
+import { univerAPI } from "@/lib/axios/univer-api"
 import { redirect } from "next/navigation"
 
 const SignOut = () => {
