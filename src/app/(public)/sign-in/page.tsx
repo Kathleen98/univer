@@ -68,7 +68,7 @@ const SignIn = async ({ searchParams }: SignInProps) => {
         } else {
           redirect('/sign-in?error=http_error')
         }
-      } else if (error.request) {
+      } else if (error.request !== 303) {
         redirect('/sign-in?error=network_error')
       } else {
         redirect('/sign-in?error=unknown_error')
