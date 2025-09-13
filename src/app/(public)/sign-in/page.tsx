@@ -1,4 +1,4 @@
-/* eslint-disable prefer-const */
+
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import banner from '../../../../public/banner-sign-in.webp'
@@ -18,11 +18,12 @@ export const metadata={
 }
 
 interface SignInProps {
-  searchParams: { error?: string }
+  searchParams: Promise<{ error?: string }>
 }
 
-const SignIn = ({ searchParams }: SignInProps) => {
-  let showAlert = !!searchParams?.error
+const SignIn = async ({ searchParams }: SignInProps) => {
+  const resolvedSearchParams = await searchParams
+  const showAlert = !!resolvedSearchParams.error
 
   const handleSignIn = async (formData: FormData) => {
     "use server"
@@ -79,7 +80,7 @@ const SignIn = ({ searchParams }: SignInProps) => {
 }
 
 const getErrorMesssage = () => {
-  switch (searchParams.error) {
+  switch (resolvedSearchParams.error) {
     case 'missing_email': return 'Preencha o campo email!'
     case 'missing_password': return 'Preencha o campo senha!'
     case 'invalid_credentials': return 'Email ou senha incorretos'
