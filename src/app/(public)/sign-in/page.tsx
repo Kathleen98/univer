@@ -12,7 +12,7 @@ import { cookies } from "next/headers"
 import { AlertGeneral } from "@/components/Alert"
 
 export const metadata={
-  title: 'sign-in',
+  title: 'Sign-in',
   description: 'Boas vindas a nossa página de login',
   
 }
@@ -55,8 +55,6 @@ const SignIn = async ({ searchParams }: SignInProps) => {
         secure: process.env.NODE_ENV === 'production'
       })
 
-      redirect("/home")
-
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
@@ -77,6 +75,7 @@ const SignIn = async ({ searchParams }: SignInProps) => {
       }
     }
 
+      redirect("/home")
 }
 
 const getErrorMesssage = () => {
