@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
         hostname: 'placehold.co',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.univervideo.com',
+        port: '',
+        pathname: '/**',
       }
     ]
   },

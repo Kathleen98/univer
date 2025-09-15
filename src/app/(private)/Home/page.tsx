@@ -9,7 +9,7 @@ const Home = async () => {
     const getVideos = async () => {
         try {
             const api = await getApiSSR()
-            const response = await api.get(`/videos`)
+            const response = await api.get(`/video`)
 
             const data = await response.data
 
@@ -22,20 +22,23 @@ const Home = async () => {
 
     const videos = await getVideos()
 
+    console.log(videos)
+
 
     return (
-        <div className="bg-[#000210]">
+        <div className="bg-[#000210] flex flex-col">
             <Header />
             <Hero />
-            {videos?.map((content) => {
+            <div className="flex gap-3  mx-auto my-3 flex-wrap">
+                {videos?.map((content) => {
                 return (
                     <ContentCarosel
                         key={content.id}
-                        title={content.title}
-
+                        thumbnailUrl={content.thumbnailUrl}
                     />
                 )
             })}
+            </div>
 
         </div>
     )
