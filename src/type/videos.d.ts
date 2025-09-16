@@ -3,6 +3,7 @@ export type videosProps = Root2[]
 export interface Root2 {
   id: string
   title: string
+  slug: string
   description: string
   duration: number
   releaseDate: string
