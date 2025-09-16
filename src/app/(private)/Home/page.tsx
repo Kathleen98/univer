@@ -36,18 +36,9 @@ const Home = async () => {
                 <ReadyMadeFilters />
 
                 <div className="flex flex-wrap gap-5 w-[95%]">
-                    {videos?.map((content) => {
-                        return (
-                            <ContentCarosel
-                                key={content.id}
-                                thumbnailUrl={content.thumbnailUrl}
-                                slug={content.slug}
-                                title={content.title}
-                            />
-                        )
-                    })}
-
-
+                    <ContentCarosel
+                        initialVideos={videos}
+                    />
                 </div>
                 <NewContent />
             </main>
