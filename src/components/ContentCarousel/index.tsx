@@ -14,9 +14,11 @@ export const ContentCarosel = ({ type = 'default', thumbnailUrl }: ContentCarose
 
 
     return (
-        <Card className={`${type === "continue" ? "w-[300px] h-[172px]" : "w-[360px]"} gap-0  p-0 bg-transparent border-none hover:scale-115 transition-all duration-300 `} >
+        <Card className={`${type === "continue" ? "w-[300px] h-[172px]" : "w-[360px]"} gap-0 group relative hover:z-30  p-0 bg-transparent border-none hover:scale-115 transition-all duration-300 `} >
             <Image width={320} height={172} src={thumbnailUrl} alt="Banner Paulo" className={`${type === "continue" ? "w-[180px] h-[172px]" : "w-[490px] h-[220px]"} rounded-sm hover:rounded-b-none`} />
-            <CardContent className="bg-[#112337] p-4 flex flex-col gap-2">
+            <CardContent className="bg-[#112337]  p-4 flex flex-col gap-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300
+        rounded-b-sm
+        shadow-lg">
                 <div className="flex gap-2 items-center">
                     <Button className="rounded-4xl cursor-pointer"><Play /> </Button>
                     <Tooltip>
