@@ -23,6 +23,7 @@ const Home = async () => {
 
     const videos = await getVideos()
 
+
     return (
         <div className="bg-[#000210] flex flex-col">
             <Header />
@@ -31,16 +32,18 @@ const Home = async () => {
 
                 <ReadyMadeFilters />
 
-               <div className="flex flex-wrap gap-5 w-[95%]">
-                 {videos?.map((content) => {
-                    return (
-                        <ContentCarosel
-                            key={content.id}
-                            thumbnailUrl={content.thumbnailUrl}
-                        />
-                    )
-                })}
-               </div>
+                <div className="flex flex-wrap gap-5 w-[95%]">
+                    {videos?.map((content) => {
+                        return (
+                            <ContentCarosel
+                                key={content.id}
+                                thumbnailUrl={content.thumbnailUrl}
+                                slug={content.slug}
+                                title={content.title}
+                            />
+                        )
+                    })}
+                </div>
             </div>
 
         </div>

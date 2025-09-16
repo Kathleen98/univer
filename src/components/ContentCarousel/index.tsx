@@ -1,29 +1,37 @@
+'use client'
 import { Play, Plus } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import Link from "next/link";
+
 
 interface ContentCaroselProps {
     type?: 'continue' | 'default';
-    thumbnailUrl: string
+    thumbnailUrl: string,
+    slug: string
+    title: string
 }
 
-export const ContentCarosel = ({ type = 'default', thumbnailUrl }: ContentCaroselProps) => {
+export const ContentCarosel = ({ type = 'default', thumbnailUrl, slug, title }: ContentCaroselProps) => {
 
 
     return (
         <Card className={`${type === "continue" ? "w-[300px] h-[172px]" : "w-[360px]"} gap-0 group relative hover:z-30  p-0 bg-transparent border-none hover:scale-115 transition-all duration-300 `} >
+
             <Image width={320} height={172} src={thumbnailUrl} alt="Banner Paulo" className={`${type === "continue" ? "w-[180px] h-[172px]" : "w-[490px] h-[220px]"} rounded-sm hover:rounded-b-none`} />
+
             <CardContent className="bg-[#112337]  p-4 flex flex-col gap-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300
         rounded-b-sm
         shadow-lg">
+                <p className="text-white font-bold text-sm">{title}</p>
                 <div className="flex gap-2 items-center">
-                    <Button className="rounded-4xl cursor-pointer"><Play /> </Button>
+                    <Link href={`/watch/${slug}`} className="rounded-4xl cursor-pointer p-3 bg-[#111929] hover:bg-[#315A83] transition-all duration-300 "><Play color="white" size='.9rem' /> </Link>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <Button className="rounded-4xl cursor-pointer"> <Plus /> </Button>
+                            <Button className="rounded-4xl cursor-pointer hover:bg-[#315A83] transition-all duration-300"> <Plus /> </Button>
                         </TooltipTrigger>
                         <TooltipContent>
                             <p>Adicionar à lista</p>
