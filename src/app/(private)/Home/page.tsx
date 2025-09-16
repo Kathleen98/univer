@@ -1,6 +1,7 @@
 import { ContentCarosel } from "@/components/ContentCarousel"
 import { Header } from "@/components/Header"
 import { Hero } from "@/components/Hero"
+import { ReadyMadeFilters } from "@/components/ReadyMadeFilters"
 import { getApiSSR } from "@/lib/axios/univer-api"
 import { videosProps } from "@/type/videos"
 
@@ -22,22 +23,24 @@ const Home = async () => {
 
     const videos = await getVideos()
 
-    console.log(videos)
-
-
     return (
         <div className="bg-[#000210] flex flex-col">
             <Header />
             <Hero />
-            <div className="flex gap-3  mx-auto my-3 flex-wrap">
-                {videos?.map((content) => {
-                return (
-                    <ContentCarosel
-                        key={content.id}
-                        thumbnailUrl={content.thumbnailUrl}
-                    />
-                )
-            })}
+            <div className="flex flex-col gap-10 items-center justify-center  flex-wrap">
+
+                <ReadyMadeFilters />
+
+               <div className="flex flex-wrap gap-5 w-[95%]">
+                 {videos?.map((content) => {
+                    return (
+                        <ContentCarosel
+                            key={content.id}
+                            thumbnailUrl={content.thumbnailUrl}
+                        />
+                    )
+                })}
+               </div>
             </div>
 
         </div>

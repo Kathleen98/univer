@@ -14,7 +14,15 @@ const nextConfig: NextConfig = {
         hostname: 'www.univervideo.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'encrypted-tbn0.gstatic.com/images',
+        port: '',
+        pathname: '/**',
       }
+
+      
     ]
   },
   async redirects() {
