@@ -1,10 +1,12 @@
 import { ContentCarosel } from "@/components/ContentCarousel"
 import { Header } from "@/components/Header"
 import { Hero } from "@/components/Hero"
+import { NewContent } from "@/components/newContent"
 import { ReadyMadeFilters } from "@/components/ReadyMadeFilters"
 import { getApiSSR } from "@/lib/axios/univer-api"
 import { videosProps } from "@/type/videos"
 import { Instagram, Youtube } from "lucide-react"
+import Link from "next/link"
 
 const Home = async () => {
 
@@ -44,20 +46,23 @@ const Home = async () => {
                             />
                         )
                     })}
+
+
                 </div>
+                <NewContent />
             </main>
 
             <footer className="h-60 flex flex-col justify-center items-center p-10">
                 <div className="flex gap-2 items-center">
-                    <Instagram color="white" size={'1.4rem'} />
-                    <Youtube color="white" size={'1.7rem'} />
+                    <Instagram color="white" strokeWidth={1} size={'1.4rem'} />
+                    <Youtube color="white" strokeWidth={1} size={'1.7rem'} />
                 </div>
-                <div className="flex gap-3">
-                    <p>Central de ajuda </p>
-                    <p>Pagamentos</p>
-                    <p>Termos de uso</p>
+                <div className="flex gap-3 p-5">
+                    <Link href={'#'} className="text-muted-foreground text-sm hover:underline underline-offset-4">Central de ajuda </Link>
+                    <Link href={'#'} className="text-muted-foreground text-sm hover:underline underline-offset-4">Pagamentos</Link>
+                    <Link href={'#'} className="text-muted-foreground text-sm hover:underline underline-offset-4">Termos de uso</Link>
                 </div>
-                <p className="text-white text-sm">&copy; Univer Videos - {new Date().getFullYear()}</p>
+                <p className="text-muted-foreground text-sm">&copy; Univer Videos - {new Date().getFullYear()}</p>
             </footer>
 
         </div>
