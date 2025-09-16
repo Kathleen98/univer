@@ -23,7 +23,7 @@ export const ContentCarosel = ({ type = 'default', thumbnailUrl, slug, title }: 
 
             <Image width={320} height={172} src={thumbnailUrl} alt="Banner Paulo" className={`${type === "continue" ? "w-[180px] h-[172px]" : "w-[490px] h-[220px]"} rounded-sm hover:rounded-b-none`} />
 
-            <CardContent className="bg-[#112337]  p-4 flex flex-col gap-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300
+            <CardContent className="bg-[#112337] absolute top-52 left-0 right-0  p-4  gap-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible  transition-all duration-300
         rounded-b-sm
         shadow-lg">
                 <p className="text-white font-bold text-sm">{title}</p>
