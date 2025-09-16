@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero"
 import { ReadyMadeFilters } from "@/components/ReadyMadeFilters"
 import { getApiSSR } from "@/lib/axios/univer-api"
 import { videosProps } from "@/type/videos"
+import { Instagram, Youtube } from "lucide-react"
 
 const Home = async () => {
 
@@ -28,7 +29,7 @@ const Home = async () => {
         <div className="bg-[#000210] flex flex-col">
             <Header />
             <Hero />
-            <div className="flex flex-col gap-10 items-center justify-center  flex-wrap">
+            <main className="flex flex-col gap-10 items-center justify-center  flex-wrap">
 
                 <ReadyMadeFilters />
 
@@ -44,7 +45,20 @@ const Home = async () => {
                         )
                     })}
                 </div>
-            </div>
+            </main>
+
+            <footer className="h-60 flex flex-col justify-center items-center p-10">
+                <div className="flex gap-2 items-center">
+                    <Instagram color="white" size={'1.4rem'} />
+                    <Youtube color="white" size={'1.7rem'} />
+                </div>
+                <div className="flex gap-3">
+                    <p>Central de ajuda </p>
+                    <p>Pagamentos</p>
+                    <p>Termos de uso</p>
+                </div>
+                <p className="text-white text-sm">&copy; Univer Videos - {new Date().getFullYear()}</p>
+            </footer>
 
         </div>
     )
