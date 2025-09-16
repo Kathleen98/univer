@@ -7,6 +7,9 @@ import { getApiSSR } from "@/lib/axios/univer-api"
 import { videosProps } from "@/type/videos"
 import { Instagram, Youtube } from "lucide-react"
 import Link from "next/link"
+import { Suspense } from "react"
+
+export const dynamic = 'force-dynamic'
 
 const Home = async () => {
 
@@ -29,7 +32,9 @@ const Home = async () => {
 
     return (
         <div className="bg-[#000210] flex flex-col">
-            <Header />
+            <Suspense fallback={<div>carregando...</div>}>
+                <Header />
+            </Suspense>
             <Hero />
             <main className="flex flex-col gap-10 items-center justify-center  flex-wrap">
 
