@@ -1,6 +1,6 @@
-export type videosProps = Root2[]
+export type videosProps = contents[]
 
-export interface Root2 {
+export interface contents {
   id: string
   title: string
   slug: string
