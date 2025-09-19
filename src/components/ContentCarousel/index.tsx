@@ -5,7 +5,8 @@ import { searchCategoryClientAPI } from "@/services/search-category-client";
 import { contents, videosProps } from "@/type/videos";
 import { Carousel, CarouselContent } from "../ui/carousel";
 import { ContentCard } from "./content-card";
-import { NewContent } from "../newContent";
+import { NewContent } from "./new-content-card";
+
 
 
 interface ContentCaroselProps {
@@ -56,41 +57,23 @@ export const ContentCarosel = ({ initialVideos }: ContentCaroselProps) => {
     return (
         groupedContents && Object.entries(groupedContents).length > 0 ? (
             <div className="flex flex-col gap-10">
-                {Object.entries(groupedContents).map(([type, contents], index) => {
-                    const filterCategory = contents.filter((item) => item.type !== 'NEW')
-                    const filterNewsContents = contents.filter((news) => news.type === 'NEW')
-                    console.log(filterNewsContents)
-                    return (
+                {Object.entries(groupedContents).map(([type, contents], index) => (
+                    <div key={index}>
+                        <p className="text-white font-bold text-3xl pb-3">{translateTitleCAtegory(type)}</p>
+                        <Carousel opts={{ align: "start", loop: true }} className="mb-14">
+                            <CarouselContent className="">
+                                {contents.map((content) => (
+                                    content.type === 'NEW' ?
+                                        <NewContent key={content.id} newsContent={content} /> :
+                                        <ContentCard key={content.id} content={content} />
+                                ))}
+                            </CarouselContent>
+                        </Carousel>
 
-                        <div key={index}>
-                            <div className="flex flex-col gap-14">
-                                <p className="text-white font-bold text-3xl">{translateTitleCAtegory(type)}</p>
-
-                                <Carousel opts={{ align: "start", loop: true }} className="">
-                                    <CarouselContent className="">
-                                        {filterCategory.map((content) => (
-                                            <ContentCard key={content.id} content={content} />
-                                        ))}
-                                    </CarouselContent>
-                                </Carousel>
-                            </div>
-
-                            <div className="flex flex-col gap-5">
-
-
-                                <Carousel opts={{ align: "start", loop: true }} className="">
-                                    <CarouselContent className="">
-                                        {filterNewsContents.map((newsContent) => (
-                                            <NewContent key={newsContent.id} newsContent={newsContent} />
-                                        ))}
-                                    </CarouselContent>
-                                </Carousel>
-                            </div>
-                        </div>
-
-                    )
+                    </div>
+                )
+                )
                 }
-                )}
             </div>
         ) : null
     );
