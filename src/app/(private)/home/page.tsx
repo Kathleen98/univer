@@ -31,7 +31,7 @@ const Home = async () => {
 
 
   return (
-    <div className="bg-[#000210] flex flex-col">
+    <div className="bg-[#000210] flex flex-col overflow-x-hidden">
       <Suspense fallback={<div>carregando...</div>}>
         <Header />
       </Suspense>
@@ -40,7 +40,7 @@ const Home = async () => {
 
         <ReadyMadeFilters />
 
-        <div className="flex flex-wrap gap-5 w-[95%]">
+        <div className="flex flex-wrap gap-5 w-[96%]">
           <ContentCarosel
             initialVideos={videos}
           />
