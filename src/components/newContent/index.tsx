@@ -1,10 +1,19 @@
 import Image from "next/image"
 import { Card } from "../ui/card"
+import { contents } from "@/type/videos"
+import { CarouselItem } from "../ui/carousel"
 
-export const NewContent = () => {
+interface NewContentProps {
+  newsContent: contents
+}
+
+export const NewContent = ({ newsContent }: NewContentProps) => {
   return (
-    <Card>
-      <Image src="https://univer-prod.cloud.seachange.com/dynamic-image-service/unsafe/fit-in/232x348/filters:upscale():fill(blur):format(webp)/univideo01.akamaized.net/cdn/asset/images/thumb-v-WVzeX-A5P2Y.jpg" alt='cartaz' width={312} height={455} />
-    </Card>
+    <CarouselItem >
+      <Card className="h-[760px] w-[450px] rounded-sm" >
+        <Image src={newsContent.thumbnailUrl} alt='cartaz' width={450} height={760} />
+
+      </Card>
+    </CarouselItem>
   )
 }
