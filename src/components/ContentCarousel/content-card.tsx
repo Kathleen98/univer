@@ -4,9 +4,10 @@ import { CarouselItem } from "../ui/carousel"
 import Link from "next/link"
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip"
 import { Button } from "../ui/button"
-import { Badge } from "../ui/badge"
 import { contents } from "@/type/videos"
-import { CircleChevronDown, Play, Plus } from "lucide-react"
+import { Play, Plus } from "lucide-react"
+import { ContentDetail } from "./content-details"
+import { IndicativeClassification } from "../IndicativeClassification"
 
 interface ContentCardProps {
   content: contents
@@ -14,12 +15,12 @@ interface ContentCardProps {
 
 export const ContentCard = ({ content }: ContentCardProps) => {
   return (
-    <CarouselItem key={content.id} className="basis-1/10" >
+    <CarouselItem key={content.id} className="basis-1/11" >
       <Card className={` gap-0 group relative w-[360px] h-[220px] p-0 bg-transparent border-none hover:scale-115 transition-all duration-300 `} >
 
         <Image width={320} height={172} src={content.thumbnailUrl} alt="Banner Paulo" className={` z-1 w-[360px] h-[220px]   rounded-sm hover:rounded-b-none`} />
 
-        <CardContent className="bg-[#112337] absolute top-52 left-0 right-0  p-4 z-90 gap-2 opacity-0 invisible group-hover:z-90 group-hover:opacity-100 group-hover:visible  transition-all duration-300 rounded-b-sm shadow-lg">
+        <CardContent className="bg-[#112337] absolute top-52 left-0 right-0   p-4 z-90 gap-2 opacity-0 invisible group-hover:z-90 group-hover:opacity-100 group-hover:visible  transition-all duration-300 rounded-b-sm shadow-lg">
           <p className="text-white font-bold text-sm">{content.title}</p>
           <div className="flex justify-between items-center">
             <div className="flex gap-2 items-center">
@@ -32,13 +33,13 @@ export const ContentCard = ({ content }: ContentCardProps) => {
                   <p>Adicionar à lista</p>
                 </TooltipContent>
               </Tooltip>
-              <Badge className="rounde-md w-6 h-6 bg-green-700 text-white">L</Badge>
+              <IndicativeClassification text={'L'} />
             </div>
 
             <div className="">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button className="rounded-4xl cursor-pointer hover:bg-[#315A83] transition-all duration-300"> <CircleChevronDown color="white" /> </Button>
+                  <ContentDetail />
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>Ver mais</p>
