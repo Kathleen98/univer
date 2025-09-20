@@ -35,14 +35,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning >
-      <QueryProvider>
-        <body
-          suppressHydrationWarning
-          className={`${geistSans.variable} ${geistMono.variable} antialiased `}
-        >
+      <body
+        suppressHydrationWarning
+        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+      >
+        <QueryProvider >
           {children}
-        </body>
-      </QueryProvider>
+        </QueryProvider>
+      </body>
     </html>
   );
 }

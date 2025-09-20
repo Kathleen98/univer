@@ -1,7 +1,7 @@
 import { ContentCarosel } from "@/components/ContentCarousel"
+import { ContentDetail } from "@/components/ContentDetail"
 import { Header } from "@/components/Header"
 import { Hero } from "@/components/Hero"
-import { NewContent } from "@/components/newContent"
 import { ReadyMadeFilters } from "@/components/ReadyMadeFilters"
 import { getApiSSR } from "@/lib/axios/univer-api"
 import { videosProps } from "@/type/videos"
@@ -45,7 +45,8 @@ const Home = async () => {
             initialVideos={videos}
           />
         </div>
-        <NewContent />
+
+        <ContentDetail />
       </main>
 
       <footer className="h-60 flex flex-col justify-center items-center p-10">
