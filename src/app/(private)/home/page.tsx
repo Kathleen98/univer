@@ -1,4 +1,5 @@
 import { ContentCarosel } from "@/components/ContentCarousel"
+import { ContentDetail } from "@/components/ContentDetail"
 import { Header } from "@/components/Header"
 import { Hero } from "@/components/Hero"
 import { ReadyMadeFilters } from "@/components/ReadyMadeFilters"
@@ -44,6 +45,8 @@ const Home = async () => {
             initialVideos={videos}
           />
         </div>
+
+        <ContentDetail />
       </main>
 
       <footer className="h-60 flex flex-col justify-center items-center p-10">
