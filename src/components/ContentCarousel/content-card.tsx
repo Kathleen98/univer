@@ -24,10 +24,10 @@ export const ContentCard = ({ content }: ContentCardProps) => {
           <p className="text-white font-bold text-sm">{content.title}</p>
           <div className="flex justify-between items-center">
             <div className="flex gap-2 items-center">
-              <Link href={`/watch/${content.slug}`} className="rounded-4xl cursor-pointer p-3 bg-[#111929] hover:bg-[#315A83] transition-all duration-300 "><Play color="white" size='.9rem' /> </Link>
+              <Link href={`/watch/${content.slug}`} className="rounded-4xl cursor-pointer p-3 bg-transparent hover:bg-transparent transition-all duration-300 "><Play color="white" size='.9rem' /> </Link>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button className="rounded-4xl cursor-pointer hover:bg-[#315A83] transition-all duration-300"> <Plus /> </Button>
+                  <Button className="rounded-4xl cursor-pointer bg-transparent hover:bg-transparent transition-all duration-300"> <Plus className="hover:text-[#315A83]" /> </Button>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>Adicionar à lista</p>
