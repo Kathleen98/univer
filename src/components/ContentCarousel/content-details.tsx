@@ -8,7 +8,7 @@ export const ContentDetail = () => {
   return (
     <Dialog >
       <DialogTrigger className="cursor-pointer">
-        <CircleChevronDown color="white" />
+        <CircleChevronDown color="white" strokeWidth={1} />
       </DialogTrigger>
       <DialogContent showCloseButton={false} className="bg-[#173355] border-none min-w-[35vw] p-0  ">
         <DialogTitle className="text-transparent hidden">Informações sobre o conteúdo</DialogTitle>

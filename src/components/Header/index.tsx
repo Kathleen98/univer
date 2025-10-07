@@ -5,26 +5,19 @@ import { AccountMenu } from "../AccountMenu"
 import { useScroll } from "@/hook/use-scroll"
 import { cn } from '@/lib/utils'
 import { SearchInput } from "../SearchInput"
-import { Button } from "../ui/button"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { Bell } from "lucide-react"
+import { NavigateButton } from "../Navigate"
 
 export const Header = () => {
-    const router = useRouter()
-    const searchParams = useSearchParams()
-    const pathname = usePathname()
     const isScrolled = useScroll(50)
 
-    const handleChangeParams = (category?: string) => {
-        const params = new URLSearchParams(searchParams.toString())
-
-        if (category) {
-            params.set('category', category)
-        } else {
-            params.delete('category')
-        }
-
-        router.push(`${pathname}?${params.toString()}`)
-    }
+    const menu = [
+        { title: 'Início', params: '' },
+        { title: 'Filmes', params: 'MOVIE' },
+        { title: 'Séries', params: 'SERIES' },
+        { title: 'Desenhos', params: 'ANIMATION' },
+        { title: 'Explorar', params: 'DOCUMENTARY' }
+    ]
 
     return (
         <div className={cn(
@@ -35,20 +28,13 @@ export const Header = () => {
         )}>
             <Image src={logo} width={100} height={100} alt="Logo Univer branco" />
             <div className="flex gap-5 mr-auto">
-                <Button onClick={() => handleChangeParams()} className="text-muted text-sm font-bold bg-transparent cursor-pointer hover:underline underline-offset-4 hover:bg-transparent">Início</Button>
-                <Button onClick={() => handleChangeParams('MOVIE')} className="text-muted text-sm font-bold bg-transparent cursor-pointer hover:underline underline-offset-4 hover:bg-transparent">Filmes</Button>
-                <Button onClick={() => handleChangeParams('SERIES')} className="text-muted text-sm font-bold bg-transparent cursor-pointer hover:underline underline-offset-4 hover:bg-transparent">Séries</Button>
-                <Button onClick={() => handleChangeParams('ANIMATION')} className="text-muted text-sm font-bold bg-transparent cursor-pointer hover:underline underline-offset-4 hover:bg-transparent">Kids</Button>
-                <Button onClick={() => handleChangeParams('DOCUMENTARY')} className="text-muted text-sm font-bold bg-transparent cursor-pointer hover:underline underline-offset-4 hover:bg-transparent">Explorar</Button>
-                <Button onClick={() => handleChangeParams()} className="text-muted text-sm font-bold bg-transparent cursor-pointer hover:underline underline-offset-4 hover:bg-transparent">Canais</Button>
-                <Button onClick={() => handleChangeParams()} className="text-muted text-sm font-bold bg-transparent cursor-pointer hover:underline underline-offset-4 hover:bg-transparent">Ao vivo</Button>
-                <Button onClick={() => handleChangeParams()} className="text-muted text-sm font-bold bg-transparent cursor-pointer hover:underline underline-offset-4 hover:bg-transparent">Meditação</Button>
-                <Button onClick={() => handleChangeParams()} className="text-muted text-sm font-bold bg-transparent cursor-pointer hover:underline underline-offset-4 hover:bg-transparent">Reuniões</Button>
-                <Button onClick={() => handleChangeParams()} className="text-muted text-sm font-bold bg-transparent cursor-pointer hover:underline underline-offset-4 hover:bg-transparent">Programas</Button>
-
+                {menu.map((item) => (
+                    <NavigateButton key={item.params} title={item.title} params={item.params} />
+                ))}
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-center">
                 <SearchInput />
+                <Bell className="text-white" />
                 <AccountMenu />
             </div>
         </div>

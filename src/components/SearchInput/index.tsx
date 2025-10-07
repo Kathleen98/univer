@@ -12,10 +12,12 @@ export const SearchInput = () => {
                 onFocus={() => setInputActive(true)}
                 onBlur={() => setInputActive(false)}
                 className={`pr-10 text-white ${inputActive ? style.input : "w-10 rounded-3xl"
-                    }`}
+                    } border-none`}
             />
             <Search className={`absolute right-2 top-1/2 transform -translate-y-1/2 text-white pointer-events-none ${inputActive ? "opacity-50" : "opacity-100"
                 }`} />
+
+
         </div>
     )
 }
